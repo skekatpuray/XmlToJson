@@ -80,7 +80,7 @@ public class XmlToJson extends AbstractProcessor {
                         value.set(IOUtils.toString(in));
                     } catch (Exception ex) {
                         ex.printStackTrace();
-                        getLogger().error("Failed to read json string.");
+                        getLogger().error("Failed to read xml string.");
                     }
                 }
             });
