@@ -2,6 +2,7 @@ package com.hortonworks.nifi.custom.processor.standard;
 import java.util.concurrent.atomic.AtomicReference;
 import org.apache.nifi.processor.io.InputStreamCallback;
 import org.apache.nifi.processor.io.OutputStreamCallback;
+import org.apache.nifi.processor.util.StandardValidators;
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +37,8 @@ public class XmlToJson extends AbstractProcessor {
             .name("SomeProperty")
             .displayName("Some Property")
             .description("Get some value")
-            .required(true)
+            .required(false)
+            .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
 
     static final Relationship REL_SUCCESS = new Relationship.Builder()
