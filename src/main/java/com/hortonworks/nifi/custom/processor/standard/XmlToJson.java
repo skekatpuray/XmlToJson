@@ -33,14 +33,6 @@ import org.json.XML;
 @CapabilityDescription("Converts Xml to JSON")
 public class XmlToJson extends AbstractProcessor {
 
-    static final PropertyDescriptor SomeProperty = new PropertyDescriptor.Builder()
-            .name("SomeProperty")
-            .displayName("Some Property")
-            .description("Get some value")
-            .required(false)
-            .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
-            .build();
-
     static final Relationship REL_SUCCESS = new Relationship.Builder()
             .name("success")
             .description("Succes relationship")
@@ -54,7 +46,6 @@ public class XmlToJson extends AbstractProcessor {
     @Override
     protected List<PropertyDescriptor> getSupportedPropertyDescriptors() {
         final List<PropertyDescriptor> properties = new ArrayList<>();
-        properties.add(SomeProperty);
         return properties;
     }
 
@@ -80,7 +71,7 @@ public class XmlToJson extends AbstractProcessor {
 
         try {
 
-            String someProperty = context.getProperty(SomeProperty).getValue().toString();
+            //String someProperty = context.getProperty(SomeProperty).getValue().toString();
 
             session.read(flowFile, new InputStreamCallback() {
                 @Override
